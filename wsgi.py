@@ -8,7 +8,7 @@ application = Flask(__name__)
 def hello():
     return "Hello World! From fertile Mind!"
 
-@application.route("/")
+@application.route("/ab")
 def dbconnect():
     #mydb = mysql.connector.connect(
     #     host="mysql.gamification.svc.cluster.local",
