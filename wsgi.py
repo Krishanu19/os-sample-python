@@ -20,7 +20,7 @@ def dbconnect():
     val = ("John", "Highway 21" , '12345')
     mycursor.execute(sql, val)
     mydb.commit()
-    return "record inserted ->" mycursor.rowcount
+    return mycursor.rowcount
 
 if __name__ == "__main__":
     application.run()
