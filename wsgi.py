@@ -4,7 +4,7 @@ import MySQLdb
 
 application = Flask(__name__)
 
-#@application.route("/")
+@application.route("/")
 def hello():
     return "Hello World! From fertile Mind!"
 
