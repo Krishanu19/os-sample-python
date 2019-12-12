@@ -4,10 +4,11 @@ import MySQLdb
 
 application = Flask(__name__)
 
-@application.route("/")
+#@application.route("/")
 def hello():
     return "Hello World! From fertile Mind!"
 
+@application.route("/")
 def dbconnect():
     #mydb = mysql.connector.connect(
     #     host="mysql.gamification.svc.cluster.local",
