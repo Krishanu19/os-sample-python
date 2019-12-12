@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 #import mysql.connector
 import MySQLdb
 
@@ -6,7 +6,8 @@ application = Flask(__name__)
 
 @application.route("/")
 def hello():
-    return "Hello World! From fertile Mind!"
+    #return "Hello World! From fertile Mind!"
+    return render_template('index.html')
 
 @application.route("/ab")
 def dbconnect():
