@@ -26,4 +26,4 @@ def dbconnect():
     data=conn.fetchall()    
 
 if __name__ == "__main__":
-    application.run()
+    application.run(debug=TRUE)
