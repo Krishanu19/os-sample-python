@@ -7,8 +7,8 @@ application = Flask(__name__)
 @application.route("/")
 #@application.route('/', methods=['GET', 'POST'])
 def hello():
-    #return "<h1>Hello World! From fertile Mind!</h1>"
-    return render_template('index.html')
+    return "<h1>Hello World! From fertile Mind!</h1>"
+    #return render_template('index.html')
 
 @application.route("/db/")
 def dbconnect():
