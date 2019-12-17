@@ -7,8 +7,8 @@ application = Flask(__name__)
 @application.route("/")
 #@application.route('/', methods=['GET', 'POST'])
 def hello():
-    return "Hello World! From fertile Mind!"
-    #return render_template('/Template/index.html')
+    #return "Hello World! From fertile Mind!"
+    return render_template('https://github.com/Krishanu19/os-sample-python.git/Template/index.html')
 
 @application.route("/ab/")
 def dbconnect():
@@ -19,7 +19,7 @@ def dbconnect():
     #     database=sampledb
     #    )
     conn=MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1')
-    return "DB Connected"
+    #return "DB Connected"
     mycursor = conn.cursor()
     sql = "select list_price from XXIBM_PRODUCT_PRICING where item_number=1001"
     mycursor.execute(sql)
