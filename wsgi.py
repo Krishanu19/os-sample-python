@@ -9,16 +9,16 @@ def hello():
     return "Hello World! From fertile Mind!"
     #return render_template('/Template/index.html')
 
-#@application.route("/ab")
-#def dbconnect():
+@application.route("/ab/")
+def dbconnect():
     #mydb = mysql.connector.connect(
     #     host="mysql.gamification.svc.cluster.local",
     #     user="xxuser",
     #     passwd="welcome1",
     #     database=sampledb
     #    )
-    #conn=MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1')
-    #return "DB Connected"
+    conn=MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1')
+    return "DB Connected"
 #    mycursor = mydb.cursor()
 #    mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255) , mobile int)")
 #    sql = "INSERT INTO customers (name, address , mobile) VALUES (%s, %s, %d)"
