@@ -5,7 +5,7 @@ import MySQLdb
 application = Flask(__name__)
 
 #@application.route("/")
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def hello():
     #return "Hello World! From fertile Mind!"
     return render_template('/Template/index.html')
