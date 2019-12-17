@@ -4,10 +4,11 @@ import MySQLdb
 
 application = Flask(__name__)
 
-@application.route("/")
+#@application.route("/")
+@app.route('/', methods=['GET', 'POST'])
 def hello():
-    return "Hello World! From fertile Mind!"
-    #return render_template('/Template/index.html')
+    #return "Hello World! From fertile Mind!"
+    return render_template('/Template/index.html')
 
 @application.route("/ab/")
 def dbconnect():
