@@ -1,11 +1,38 @@
-<HTML>
-<BODY bgcolor="cyan">
-<form method="POST" action="">
-    <center>
-    <H1>list_price</H1> <br>
-    list_price <input type = "text" name= "list_price" /> <br>
-    <input type = "submit">
-    </center>
-</form>
-</BODY>
-</HTML>
+<!DOCTYPE html>
+<html lang="en">
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCt</title>
+</head>
+<body>
+<table id="product" style="width:100%">
+    {% if result %}
+    <tr>
+        <th>Item Number</th>
+        <th>List Price</th>
+    </tr>
+    {% for row in result %}
+    <tr>
+        <td> {{ row.list_price }}</td>
+        <td> {{ row.item_number }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+</body>
+</html>
