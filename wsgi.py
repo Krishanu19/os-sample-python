@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-application = Flask(__name__,template_folder='/Krishanu19/os-sample-python/Templates/')
+application = Flask(__name__,template_folder='/Krishanu19/os-sample-python/templates/')
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
