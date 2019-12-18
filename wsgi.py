@@ -1,21 +1,35 @@
 from flask import Flask, render_template
-import MySQLdb
+import pymysql
 
-application = Flask(__name__, template_folder='templates')
-
-@application.route('/')
-#def index():
-#    return render_template('index.html')
-
-#@application.route("/db/")
+app = Flask(__name__, template_folder='templates')
 
 
-def index():
-            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
-            cursor = conn.cursor()
-            cursor.execute("select list_price, item_number from XXIBM_PRODUCT_PRICING LIMIT 10")
-            data = cursor.fetchall()
-            return render_template('product.html', data=data)
+class Database:
+    def __init__(self):
+        host = "mysql.gamification.svc.cluster.local"
+        user = "xxuser"
+        password = "welcome1"
+        db = "sampledb"
 
-if __name__ == '__main__':
-    application.run()
+        self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
+                                   DictCursor)
+        self.cur = self.con.cursor()
+
+    def list_prd(self):
+        self.cur.execute("select list_price, item_number from XXIBM_PRODUCT_PRICING LIMIT 10")
+        result = self.cur.fetchall()
+
+        return result
+
+@app.route('/')
+def prd():
+
+    def db_query():
+        db = Database()
+        prd = db.list_prd()
+
+        return prd
+
+    res = db_query()
+
+    return render_template('product.html', result=res, content_type='application/json')
