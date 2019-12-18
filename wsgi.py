@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-application = Flask(__name__, template_folder='template')
+application = Flask(__name__, template_folder='templates')
 
-@application.route('/', methods=['GET', 'POST'])
+@application.route('/')
 def index():
     return render_template('index.html')
 
