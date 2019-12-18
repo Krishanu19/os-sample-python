@@ -16,7 +16,7 @@ class Database:
             self.cur.execute("select list_price from XXIBM_PRODUCT_PRICING LIMIT 50")
             result = self.cur.fetchall()
             return result
-@app.route('/')
+@application.route('/')
 def product():
         def db_query():
             db = Database()
