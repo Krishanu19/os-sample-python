@@ -1,35 +1,22 @@
 from flask import Flask, render_template
-import pymysql
+import MySQLdb
 
-app = Flask(__name__, template_folder='templates')
+application = Flask(__name__, template_folder='templates')
+
+@application.route('/')
+#def index():
+#    return render_template('index.html')
+
+#@application.route("/db/")
 
 
-class Database:
-    def __init__(self):
-        host = "mysql.gamification.svc.cluster.local"
-        user = "xxuser"
-        password = "welcome1"
-        db = "sampledb"
+def index():
+            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
+            cursor = conn.cursor(buffered=True)
+            cursor.execute("select list_price, item_number from XXIBM_PRODUCT_PRICING LIMIT 10")
+            data = cursor.fetchall()
+            print("Total number of rows in Laptop is: ", cursor.rowcount)
+            return render_template('product.html', data=data)
 
-        self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
-                                   DictCursor)
-        self.cur = self.con.cursor()
-
-    def list_prd(self):
-        self.cur.execute("select list_price, item_number from XXIBM_PRODUCT_PRICING LIMIT 10")
-        result = self.cur.fetchall()
-
-        return result
-
-@app.route('/')
-def prd():
-
-    def db_query():
-        db = Database()
-        prd = db.list_prd()
-
-        return prd
-
-    res = db_query()
-
-    return render_template('product.html', result=res, content_type='application/json')
+if __name__ == '__main__':
+    application.run()
