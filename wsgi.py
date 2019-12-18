@@ -11,7 +11,7 @@ application = Flask(__name__, template_folder='templates')
 
 
 def index():
-            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1')
+            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             cursor.execute("select list_price from XXIBM_PRODUCT_PRICING where item_number=1001")
             data = cursor.fetchall()
