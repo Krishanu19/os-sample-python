@@ -10,7 +10,7 @@ class Database:
             user = "xxuser"
             password = "welcome1"
             db = "XXIBM_PRODUCT_PRICING"
-            self.con = MySQLdb.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.DictCursor)
+            self.con = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1')
             self.cur = self.con.cursor()
         def list_price(self):
             self.cur.execute("select list_price from XXIBM_PRODUCT_PRICING LIMIT 50")
