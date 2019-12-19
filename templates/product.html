@@ -27,8 +27,8 @@ tr:nth-child(even) {
     </tr>
     {% for row in data %}
     <tr>
-        <td> {{ list_price }}</td>
-        <td> {{ item_number }}</td>
+        <td>{{row[0]}}</td>
+        <td>{{row[1]}}</td>
     </tr>
     {% endfor %}
     {% endif %}
