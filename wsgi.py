@@ -17,7 +17,7 @@ def index():
             data = cursor.fetchall()
             print("Total number of rows in Laptop is: ", cursor.rowcount)
             print("\nPrinting record")
-            for row in records:
+            for row in data:
             print("list_price = ", row[0])
             print("item_number = ", row[1])
             return render_template('product.html', data=data)
