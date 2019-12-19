@@ -16,6 +16,10 @@ def index():
             cursor.execute("select list_price, item_number from XXIBM_PRODUCT_PRICING LIMIT 10")
             data = cursor.fetchall()
             print("Total number of rows in Laptop is: ", cursor.rowcount)
+            print("\nPrinting record")
+            for row in records:
+            print("list_price = ", row[0], )
+            print("item_number = ", row[1])
             return render_template('product.html', data=data)
 
 if __name__ == '__main__':
