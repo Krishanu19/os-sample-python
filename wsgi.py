@@ -17,17 +17,16 @@ def data():
              details = request.form
              fromDisc = details['fromDisc']
              toDisc = details['toDisc']
-             query = "select PP.List_Price,PS.Description,PP.Discount,PS.Catalogue_Category from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.Item_Number=PS.Item_number "
-                     "where PP.Discount between %s and %s"
+             query = "select PP.list_price,PS.description,PP.discount,PS.catalogue_category from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.item_number=PS.item_number where PP.discount between %s and %s"
              cursor.execute(query, (fromDisc, toDisc))
              data = cursor.fetchall()
              print("Total number of rows in Laptop is: ", cursor.rowcount)
              print("\nPrinting record")
              for row in data:
                print("list_price = ", row[0])
-               print("Description = ", row[1])
-               print("Discount = ", row[2])
-               print("Catalogue_Category = ", row[3])
+               print("description = ", row[1])
+               print("discount = ", row[2])
+               print("catalogue_category = ", row[3])
              return render_template('product.html', data=data)
 
 if __name__ == '__main__':
