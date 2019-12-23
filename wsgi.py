@@ -15,10 +15,10 @@ def data():
             cursor = conn.cursor()
             if request.method == "POST":
              details = request.form
-             fromDisc = details['fromDisc']
-             toDisc = details['toDisc']
-             query = "SELECT PP.list_price,PS.description,PP.discount,PS.catalogue_category from XXIBM_PRODUCT_PRICING PP INNER JOIN XXIBM_PRODUCT_SKU PS ON PP.item_number=PS.item_number and PP.discount between %s and %s"
-             cursor.execute(query, (fromDisc, toDisc))
+             size = details['size']
+             color = details['color']
+             query = "SELECT PP.list_price,PS.description,PP.discount,PS.catalogue_category from XXIBM_PRODUCT_PRICING PP INNER JOIN XXIBM_PRODUCT_SKU PS ON PP.item_number=PS.item_number where PS.SKUAtt_Value1 = %s and SKUAtt_Value2 = %s"
+             cursor.execute(query, (size, query))
              data = cursor.fetchall()
              print("Total number of rows: ", cursor.rowcount)
              print("\nPrinting record")
