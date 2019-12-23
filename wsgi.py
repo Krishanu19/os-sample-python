@@ -17,7 +17,8 @@ def data():
              details = request.form
              fromDisc = details['fromDisc']
              toDisc = details['toDisc']
-             query = "select PP.List_Price,PS.Description,PP.Discount,PS.SKUAttribute1 'Size_Available' from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.Item_Number=PS.Item_number "        "where PP.Discount between %s and %s"
+             query = "select PP.List_Price,PS.Description,PP.Discount,PS.Catalogue_Category from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.Item_Number=PS.Item_number "
+                     "where PP.Discount between %s and %s"
              cursor.execute(query, (fromDisc, toDisc))
              data = cursor.fetchall()
              print("Total number of rows in Laptop is: ", cursor.rowcount)
@@ -25,8 +26,8 @@ def data():
              for row in data:
                print("list_price = ", row[0])
                print("Description = ", row[1])
-               print("Discount = ", row[0])
-               print("SKUAttribute1 = ", row[0])
+               print("Discount = ", row[2])
+               print("Catalogue_Category = ", row[3])
              return render_template('product.html', data=data)
 
 if __name__ == '__main__':

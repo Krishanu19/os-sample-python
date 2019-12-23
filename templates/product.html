@@ -22,13 +22,15 @@ tr:nth-child(even) {
 <table id="XXIBM_PRODUCT_PRICING" style="width:100%">
     {% if data %}
     <tr>
-        <th>Item Number</th>
+        <th>list_price</th>
         <th>Description</th>
         <th>Discount</th>
-        <th>Size_Available</th>
+        <th>Catalogue_Category</th>
     </tr>
     {% for row in data %}
     <tr>
+        <td>{{row[3]}}</td>
+        <td>{{row[2]}}</td>
         <td>{{row[1]}}</td>
         <td>{{row[0]}}</td>
     </tr>
