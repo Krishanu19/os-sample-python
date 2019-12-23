@@ -16,8 +16,9 @@ def data():
             if request.method == "POST":
              details = request.form
              fromDisc = details['fromDisc']
-             toDisc = details['toDisc']            
-             cursor.execute("select PP.List_Price,PS.Description,PP.Discount,PS.SKUAtt_Value1 'Size Available' from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.Item_Number=PS.Item_number where PP.Discount between %s and %s")
+             toDisc = details['toDisc']
+             query = "select PP.List_Price,PS.Description,PP.Discount,PS.SKUAtt_Value1 'Size Available' from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.Item_Number=PS.Item_number "        "where PP.Discount between %s and %s"
+             cursor.execute(query, (fromDisc, toDisc))
              data = cursor.fetchall()
              print("Total number of rows in Laptop is: ", cursor.rowcount)
              print("\nPrinting record")
