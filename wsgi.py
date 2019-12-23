@@ -13,7 +13,7 @@ def index():
 def data():
             conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
-            if request.method == "POST":
+            if request.method == "GET":
              details = request.form
              fromDisc = details['fromDisc']
              toDisc = details['toDisc']            
