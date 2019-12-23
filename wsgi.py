@@ -17,10 +17,10 @@ def data():
              details = request.form
              fromDisc = details['fromDisc']
              toDisc = details['toDisc']
-             query = "select PP.list_price,PS.description,PP.discount,PS.catalogue_category from XXIBM_PRODUCT_PRICING PP inner join XXIBM_PRODUCT_SKU PS on PP.item_number=PS.item_number where PP.discount between %s and %s"
+             query = "SELECT PP.list_price,PS.description,PP.discount,PS.catalogue_category from XXIBM_PRODUCT_PRICING PP INNER JOIN XXIBM_PRODUCT_SKU PS ON PP.item_number=PS.item_number and PP.discount between %s and %s"
              cursor.execute(query, (fromDisc, toDisc))
              data = cursor.fetchall()
-             print("Total number of rows in Laptop is: ", cursor.rowcount)
+             print("Total number of rows: ", cursor.rowcount)
              print("\nPrinting record")
              for row in data:
                print("list_price = ", row[0])
