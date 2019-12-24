@@ -33,17 +33,11 @@ def apparels():
             cursor = conn.cursor()
             if request.method == "POST":
               details = request.form
-              query = "SELECT PP.list_price,PS.description,PP.discount,PS.catalogue_category from XXIBM_PRODUCT_PRICING PP INNER JOIN XXIBM_PRODUCT_SKU PS ON PP.item_number=PS.item_number where  PP.discount BETWEEN %s AND %s"
-             cursor.execute(query, (fromdisc, todisc))
+              query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Clothing'"
+             cursor.execute(query)
              data = cursor.fetchall()
              print("Total number of rows: ", cursor.rowcount)
-             print("\nPrinting record")
-             for row in data:
-               print("list_price = ", row[0])
-               print("description = ", row[1])
-               print("discount = ", row[2])
-               print("catalogue_category = ", row[3])
-              return render_template('product.html', data=data)
+             return render_template('Apparels.html', data=data)
 
 if __name__ == '__main__':
     application.run()
