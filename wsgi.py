@@ -34,10 +34,10 @@ def apparels():
             if request.method == "POST":
               details = request.form
               query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Clothing'"
-             cursor.execute(query)
-             data = cursor.fetchall()
-             print("Total number of rows: ", cursor.rowcount)
-             return render_template('Apparels.html', data=data)
+              cursor.execute(query)
+              data = cursor.fetchall()
+              print("Total number of rows: ", cursor.rowcount)
+              return render_template('Apparels.html', data=data)
 
 if __name__ == '__main__':
     application.run()
