@@ -1,0 +1,19 @@
+{% extends "apparels.html" %}
+{% block content %}
+    <h2>Apparels<h2>
+        <h3><table><form action="" method="POST">
+          <td>
+          <label>Select :</label>
+            <select name="option" width="300px">
+		{% for o in option_list %}
+		    <option value="{{ o.optid }}" SELECTED>{{ o.optid }}</option>
+		{% endfor %}
+	    </select>
+	  </td>
+	<td>
+	    <input class="button1" type="submit" value="Select">
+	</td>
+        </form></table><h3>
+
+  </div>
+{% endblock content %}

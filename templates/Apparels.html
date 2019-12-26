@@ -1,19 +1,35 @@
-{% extends "apparels.html" %}
-{% block content %}
-    <h2>Apparels<h2>
-        <h3><table><form action="" method="POST">
-          <td>
-          <label>Select :</label>
-            <select name="option" width="300px">
-		{% for o in option_list %}
-		    <option value="{{ o.optid }}" SELECTED>{{ o.optid }}</option>
-		{% endfor %}
-	    </select>
-	  </td>
-	<td>
-	    <input class="button1" type="submit" value="Select">
-	</td>
-        </form></table><h3>
-
-  </div>
-{% endblock content %}
+<html lang="en">
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Cloth Products</title>
+</head>
+<body>
+<table id="XXIBM_PRODUCT_CATALOGUE" style="width:100%">
+    {% if data %}
+    <tr>
+        <th>Available Product Class</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>{{row[0]}}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+</body>
+</html>
