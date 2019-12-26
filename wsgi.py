@@ -37,7 +37,7 @@ def apparels():
               cursor.execute(query)
               data = cursor.fetchall()
               print("Total number of rows: ", cursor.rowcount)
-              return render_template('Apparels.html', data=data)
+              return render_template('Apparels1.html', optionlist=data)
 
 if __name__ == '__main__':
     application.run()
