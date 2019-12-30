@@ -27,7 +27,7 @@ def index():
                # print("catalogue_category = ", row[3])
              # return render_template('product.html', data=data)
 
-@application.route('/apparels', methods=['GET', 'POST'])
+@application.route('/apparels', methods=["GET", "POST"])
 def apparels():
             conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
