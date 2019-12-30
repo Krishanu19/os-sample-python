@@ -37,6 +37,9 @@ def apparels():
               cursor.execute(query)
               clsData = cursor.fetchall()
               print("Total number of rows: ", cursor.rowcount)
+              print("\nPrinting record")
+              for row in data:
+                print("Available Class = ", row[0])
               return render_template('apparels.html', apparels=clsData)
 
 if __name__ == '__main__':
