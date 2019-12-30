@@ -31,14 +31,14 @@ def index():
 def apparels():
             conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
-            if request.method == "POST":
+            if request.method == "GET":
               details = request.form
               query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Clothing'"
               cursor.execute(query)
               clsData = cursor.fetchall()
               print("Total number of rows: ", cursor.rowcount)
               print("\nPrinting record")
-              for row in data:
+              for row in clsdata:
                 print("Available Class = ", row[0])
               return render_template('apparels.html', apparels=clsData)
 
