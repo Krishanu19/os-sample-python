@@ -51,7 +51,7 @@ def footwears():
               print("\nPrinting record")
               for row in footwears:
                 print("Available Class = ", row[0])
-              return render_template('apparels.html', footwears=clsData)              
+              return render_template('footwears.html', footwears=clsData)              
 
 if __name__ == '__main__':
     application.run()
