@@ -39,7 +39,7 @@ def apparels():
               return render_template('apparels.html', apparels=clsData)
 
 @application.route('/footwears', methods=["GET", "POST"])
-def apparels():
+def footwears():
             conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             if request.method == "GET":
