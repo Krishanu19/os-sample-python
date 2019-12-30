@@ -20,11 +20,11 @@ tr:nth-child(even) {
 </head>
 <body>
 <table id="XXIBM_PRODUCT_CATALOGUE" style="width:100%">
-    {% if data %}
+    {% if clsData %}
     <tr>
         <th>Available Product Class</th>
     </tr>
-    {% for row in data %}
+    {% for row in clsData %}
     <tr>
         <td>{{row[0]}}</td>
     </tr>
