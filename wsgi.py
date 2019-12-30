@@ -35,12 +35,24 @@ def apparels():
               details = request.form
               query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Clothing'"
               cursor.execute(query)
+              clsData = cursor.fetchall()              
+              return render_template('apparels.html', apparels=clsData)
+              
+@application.route('/footwears', methods=["GET", "POST"])
+def apparels():
+            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
+            cursor = conn.cursor()
+            if request.method == "GET":
+              details = request.form
+              query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Footwear'"
+              cursor.execute(query)
               clsData = cursor.fetchall()
               print("Total number of rows: ", cursor.rowcount)
               print("\nPrinting record")
-              for row in clsData:
+              for row in footwears:
                 print("Available Class = ", row[0])
-              return render_template('apparels.html', apparels=clsData)
+              return render_template('apparels.html', footwears=clsData)
+              
 
 if __name__ == '__main__':
     application.run()
