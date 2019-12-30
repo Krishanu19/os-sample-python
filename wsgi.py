@@ -49,7 +49,7 @@ def footwears():
               clsData = cursor.fetchall()
               print("Total number of rows: ", cursor.rowcount)
               print("\nPrinting record")
-              for row in footwears:
+              for row in clsData:
                 print("Available Class = ", row[0])
               return render_template('footwears.html', footwears=clsData)              
 
