@@ -40,7 +40,8 @@ def apparels():
               print("\nPrinting record")
               for row in data:
                 print("Available Class = ", row[0])
-              return render_template('apparels.html', apparels=clsData)
+                
+            return render_template('apparels.html', apparels=clsData)
 
 if __name__ == '__main__':
     application.run()
