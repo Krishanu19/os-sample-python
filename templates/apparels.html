@@ -21,13 +21,127 @@ tr:nth-child(even) {
 <body>
 <table id="XXIBM_PRODUCT_CATALOGUE" style="width:100%">
     {% if apparels %}
-    <tr>
+<!--    <tr>
         <th>Available Apparels</th>
-    </tr>
+    </tr> -->
 		{% for row in apparels %}
-		<tr>
+<!--		<tr>
 			<td>{{row[0]}}</td>
-		</tr>
+		</tr>  -->
+		     <td>
+                  {% if row[0] == 'Athletic wear' %}
+                  <p>Athletic wear</p>
+                  <img src="{{url_for('static', filename='athleticwear.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>
+			  <td>
+                  {% if row[0] == 'Clothing accessories' %}
+                  <p>Clothing accessories</p>
+                  <img src="{{url_for('static', filename='clothingaccessories.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>
+			  <td>
+                  {% if row[0] == 'Coats and jackets' %}
+                  <p>Coats and jackets</p>
+                  <img src="{{url_for('static', filename='coatsjackets.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			  <td>
+                  {% if row[0] == 'Disposable clothes' %}
+                  <p>Disposable clothes</p>
+                  <img src="{{url_for('static', filename='disposableclothes.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			  <td>
+                  {% if row[0] == 'Dresses and skirts and saris and kimonos' %}
+                  <p>Dresses and skirts and saris and kimonos</p>
+                  <img src="{{url_for('static', filename='skirtsarees.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>				 
+			  <td>
+                  {% if row[0] == 'Folkloric clothing' %}
+                  <p>Folkloric clothing</p>
+                  <img src="{{url_for('static', filename='Folkloricclothing.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>				 
+			  <td>
+                  {% if row[0] == 'Hosiery' %}
+                  <p>Hosiery</p>
+                  <img src="{{url_for('static', filename='hosiery.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>				 
+			  <td>
+                  {% if row[0] == 'Nightwear' %}
+                  <p>Nightwear</p>
+                  <img src="{{url_for('static', filename='nightwear.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			  <td>
+                  {% if row[0] == 'Nightwear' %}
+                  <p>Nightwear</p>
+                  <img src="{{url_for('static', filename='nightwear.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			  <td>
+                  {% if row[0] == 'Overalls and coveralls' %}
+                  <p>Overalls and coveralls</p>
+                  <img src="{{url_for('static', filename='overallcoverall.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			  <td>
+                  {% if row[0] == 'Shirts and blouses' %}
+                  <p>Shirts and blouses</p>
+                  <img src="{{url_for('static', filename='shirtsandblouses.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			  <td>
+                  {% if row[0] == 'Slacks and trousers and shorts' %}
+                  <p>Shirts and blouses</p>
+                  <img src="{{url_for('static', filename='slackstrousers.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>				 
+			 <td>
+                  {% if row[0] == 'Suits' %}
+                  <p>Suits</p>
+                  <img src="{{url_for('static', filename='suits.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			 <td>
+                  {% if row[0] == 'Sweaters' %}
+                  <p>Sweaters</p>
+                  <img src="{{url_for('static', filename='sweaters.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>				 
+			 <td>
+                  {% if row[0] == 'Swimwear' %}
+                  <p>Swimwear</p>
+                  <img src="{{url_for('static', filename='swimwear.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			 <td>
+                  {% if row[0] == 'Tshirts' %}
+                  <p>Tshirts</p>
+                  <img src="{{url_for('static', filename='tshirts.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			 <td>
+                  {% if row[0] == 'Undergarments' %}
+                  <p>Undergarments</p>
+                  <img src="{{url_for('static', filename='undergarments.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			 <td>
+                  {% if row[0] == 'Uniforms' %}
+                  <p>Uniforms</p>
+                  <img src="{{url_for('static', filename='uniforms.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>	
+			 <td>
+                  {% if row[0] == 'Waistcoats' %}
+                  <p>Waistcoats</p>
+                  <img src="{{url_for('static', filename='waistcoats.jpg')}}" width="350" height="230"/> 
+                  {% endif %}
+             </td>			 
 		{% endfor %}
     {% endif %}
 </table>

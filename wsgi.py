@@ -33,7 +33,7 @@ def apparels():
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
-              query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Clothing'"
+              query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Clothing' order by class_name"
               cursor.execute(query)
               clsData = cursor.fetchall()              
               return render_template('apparels.html', apparels=clsData)
