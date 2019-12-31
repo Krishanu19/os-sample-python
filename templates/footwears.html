@@ -25,18 +25,29 @@ tr:nth-child(even) {
         <th>Available Footwears</th>
     </tr> -->
 		{% for row in footwears %}
-            {% if row[0] == 'Boots' %}
-            <p>BOOTS</p>
-            <img src="{{url_for('static', filename='boots.jpg')}}" width="350" height="230" align = "left"/> 
-			{% endif %}
-            {% if row[0] == 'Shoes' %}
-            <p>BOOTS</p>
-            <img src="{{url_for('static', filename='shoes.jpg')}}" width="350" height="230" align = "middle"/> 
-			{% endif %}
-            {% if row[0] == 'Slippers' %}
-            <p>BOOTS</p>
-            <img src="{{url_for('static', filename='slippers.jpg')}}" width="350" height="230" align = "right"/> 
-			{% endif %}
+            <tr>
+                <th colspan="3">Footwares</th>
+            </tr>
+            <tr>
+                <th>
+                    {% if row[0] == 'Boots' %}
+                    <p>BOOTS</p>
+                    <img src="{{url_for('static', filename='boots.jpg')}}" width="350" height="230"/> 
+                    {% endif %}
+                 </th>
+                 <th>
+                    {% if row[0] == 'Shoes' %}
+                    <p>Shoes</p>
+                    <img src="{{url_for('static', filename='shoes.jpg')}}" width="350" height="230"/> 
+                    {% endif %}
+                  </th>
+                  <th>
+                    {% if row[0] == 'Slippers' %}
+                    <p>Slippers</p>
+                    <img src="{{url_for('static', filename='slippers.jpg')}}" width="350" height="230"/> 
+                    {% endif %}
+                  </th>
+            </tr>
 		{% endfor %}
     {% endif %}
 </table>
