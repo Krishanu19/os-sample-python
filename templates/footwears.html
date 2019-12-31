@@ -29,6 +29,14 @@ tr:nth-child(even) {
             <p>BOOTS</p>
             <img src="{{url_for('static', filename='boots.jpg')}}" width="350" height="230" /> 
 			{% endif %}
+            {% if row[0] == 'Shoes' %}
+            <p>BOOTS</p>
+            <img src="{{url_for('static', filename='shoes.jpg')}}" width="350" height="230" /> 
+			{% endif %}
+            {% if row[0] == 'Slippers' %}
+            <p>BOOTS</p>
+            <img src="{{url_for('static', filename='slippers.jpg')}}" width="350" height="230" /> 
+			{% endif %}
 		{% endfor %}
     {% endif %}
 </table>
