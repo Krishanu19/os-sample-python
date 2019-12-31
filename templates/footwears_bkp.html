@@ -25,10 +25,9 @@ tr:nth-child(even) {
         <th>Available Footwears</th>
     </tr>
 		{% for row in footwears %}
-            {% if row[0] == 'boots' %}
-            <p>BOOTS</p>
-            <img src="{{url_for('static', filename='boots.jpg')}}" width="350" height="230" /> 
-			{% endif %}
+		<tr>
+			<td>{{row[0]}}</td>
+		</tr>
 		{% endfor %}
     {% endif %}
 </table>
