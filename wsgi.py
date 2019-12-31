@@ -44,7 +44,7 @@ def footwears():
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
-              query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Footwear'"
+              query = "select distinct class_name from sampledb.XXIBM_PRODUCT_CATALOGUE WHERE FAMILY_NAME='Footwear' order by class_name"
               cursor.execute(query)
               clsData = cursor.fetchall()
               print("Total number of rows: ", cursor.rowcount)
