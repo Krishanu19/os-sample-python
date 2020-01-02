@@ -42,6 +42,7 @@ tr:nth-child(even) {
                   {% if row[0] == 'Coats and jackets' %}
 				  <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="{{url_for('static', filename='coatsjackets.jpg')}}" style="width: 100%">Coats and jackets</p>				  
                   {% endif %}
+				<p style="clear: both;">	
              <!-- </td>	
 			  <td> -->
                   {% if row[0] == 'Disposable clothes' %}
@@ -57,6 +58,7 @@ tr:nth-child(even) {
                   {% if row[0] == 'Folkloric clothing' %}
 				  <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="{{url_for('static', filename='Folkloricclothing.jpg')}}" style="width: 100%">Folkloric clothing</p>				  
                   {% endif %}
+				<p style="clear: both;">	
              <!--</td>				 
 			  <td> -->
                   {% if row[0] == 'Hosiery' %}
@@ -72,6 +74,7 @@ tr:nth-child(even) {
                   {% if row[0] == 'Overalls and coveralls' %}
 				  <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="{{url_for('static', filename='overallcoverall.jpg')}}" style="width: 100%">Overalls and coveralls</p>				  				  				  
                   {% endif %}
+				<p style="clear: both;">	
              <!--</td>	
 			  <td> -->
                   {% if row[0] == 'Shirts and blouses' %}
@@ -87,6 +90,7 @@ tr:nth-child(even) {
                   {% if row[0] == 'Suits' %}
 				  <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="{{url_for('static', filename='suits.jpg')}}" style="width: 100%">Suits</p>				  				  				  
                   {% endif %}
+				  <p style="clear: both;">	 
              <!--</td>	
 			 <td> -->
                   {% if row[0] == 'Sweaters' %}
@@ -103,6 +107,7 @@ tr:nth-child(even) {
                   {% if row[0] == 'Tshirts' %}
 				  <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="{{url_for('static', filename='tshirts.jpg')}}" style="width: 100%">Tshirts</p>				  				  				  				  
                   {% endif %}
+				  <p style="clear: both;">	 
              <!--</td>	
 			 <td> -->
                   {% if row[0] == 'Undergarments' %}
@@ -118,7 +123,7 @@ tr:nth-child(even) {
                   {% if row[0] == 'Waistcoats' %}
 				  <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="{{url_for('static', filename='waistcoat.jpg')}}" style="width: 100%">Waistcoats</p>				  				  				  				  				  
                   {% endif %}
-             <p style="clear: both;">		 
+				  <p style="clear: both;">	 	 
 		{% endfor %}
     {% endif %}
 </table>
