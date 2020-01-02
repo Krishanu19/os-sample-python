@@ -63,7 +63,8 @@ def athwear():
               query = "SELECT PC.CLASS_NAME,PS.DESCRIPTION,PS.LONG_DESCRIPTION,PST.BRAND,SKU_ATTRIBUTE_VALUE1,SKU_ATTRIBUTE_VALUE2,PP.DISCOUNT,PP.LIST_PRICE,PP.IN_STOCK FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY  AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.FAMILY_NAME='Clothing'"
               cursor.execute(query)
               clsData = cursor.fetchall()
-              print (json.dumps(clsData,indent=4))                 
+              print (json.dumps(clsData,indent=4))  
+            return render_template('FinalResult.html', athwear=clsData)              
 
 if __name__ == '__main__':
     application.run()
