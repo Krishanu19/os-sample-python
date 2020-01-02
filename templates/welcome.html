@@ -14,6 +14,7 @@
 	<br>
 	<br>
     <p>
+	<!--
 	<tr>
 		<td>
 		<a class="link" href="/apparels"> 
@@ -27,6 +28,15 @@
 			<h1>Footwears</h1>
 		</a>
 	</tr>
+	-->
+	<a class="link" href="/apparels"> 
+			<img src="{{url_for('static', filename='clothes.jpg')}}" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+			<h1>Apparels</h1>
+	</a>
+	<a class="link" href="/footwears"> 
+			<img src="{{url_for('static', filename='footwear.jpg')}}" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+			<h1>Footwears</h1>
+	</a>
 	<!--
 	<form method="POST" action="/luggages">
 	<a href="Luggages.html">
