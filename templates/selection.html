@@ -7,11 +7,13 @@
 	<H1>Welcome To Fertile Mind e-Cart Shopping Portal !</H1> <br>
 	<br>
 	<td>
-	{% if athwear %}
-	<select name="option" width="300px">
+	{% if athwear %}	
+	<select id = "selectbox1" name="option" width="300px">
+	<option>Please Select The Item</option>
 	{% for o in athwear %}
 		<option value="{{ o.optid }}" SELECTED>{{ o.optid }}</option>
 	{% endfor %}
+	{% endif %}
 	</select>
 	</td>
 	<td>
