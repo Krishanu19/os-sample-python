@@ -1,0 +1,22 @@
+<HTML>
+<BODY bgcolor="cyan">
+    <center>
+	<title>Fertile Mind e-cart shop</title>
+	<br>
+	<br>
+	<H1>Welcome To Fertile Mind e-Cart Shopping Portal !</H1> <br>
+	<br>
+	<td>
+	{% if athwear %}
+	<select name="option" width="300px">
+	{% for o in athwear %}
+		<option value="{{ o.optid }}" SELECTED>{{ o.optid }}</option>
+	{% endfor %}
+	</select>
+	</td>
+	<td>
+    <input class="button1" type="submit" value="Select">
+	</td>    
+    </center>
+</BODY>
+</HTML>

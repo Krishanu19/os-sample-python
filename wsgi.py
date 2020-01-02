@@ -64,7 +64,7 @@ def athwear():
               cursor.execute(query)
               clsData = cursor.fetchall()
               print (json.dumps(clsData,indent=4))  
-            return render_template('FinalResult.html', athwear=clsData)              
+            return render_template('selection.html', athwear=clsData)              
 
 if __name__ == '__main__':
     application.run()
