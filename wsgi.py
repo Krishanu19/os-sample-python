@@ -72,7 +72,7 @@ def athwear():
               query = "SELECT distinct PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY  AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' AND PS.DESCRIPTION='Reflex Menâ€™s Track Jacket'and AND PST.BRAND='Reflex' and PP.IN_STOCK='Yes'" 
               cursor.execute(query)
               clrData = cursor.fetchall()              
-            return render_template('selection.html', athwear=desData , athwear=brndData ,athwear=szData,athwear=clrData )              
+            return render_template('selection.html', athwear=desData)              
 
 if __name__ == '__main__':
     application.run()
