@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import MySQLdb
+import json
 
 application = Flask(__name__, template_folder='templates')
 
@@ -51,7 +52,18 @@ def footwears():
               print("\nPrinting record")
               for row in clsData:
                 print("Available Class = ", row[0])
-              return render_template('footwears.html', footwears=clsData)              
+              return render_template('footwears.html', footwears=clsData)  
+              
+@application.route('/athwear', methods=["GET", "POST"])
+def athwear():
+            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
+            cursor = conn.cursor()
+            if request.method == "GET":
+              details = request.form
+              query = "SELECT PC.CLASS_NAME,PS.DESCRIPTION,PS.LONG_DESCRIPTION,PST.BRAND,SKU_ATTRIBUTE_VALUE1,SKU_ATTRIBUTE_VALUE2,PP.DISCOUNT,PP.LIST_PRICE,PP.IN_STOCK FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY  AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.FAMILY_NAME='Clothing'"
+              cursor.execute(query)
+              clsData = cursor.fetchall()
+              print (json.dumps(clsData,indent=4))                 
 
 if __name__ == '__main__':
     application.run()
