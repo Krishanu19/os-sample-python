@@ -22,6 +22,13 @@
 		<option value="{{ row[1] }}" SELECTED>{{ row[1] }}</option>
 	{% endfor %}
 	</select>
+	<h2> Please Select The Size </h2>
+	<select id = "selectbox2" name="size" width="300px">
+	<option>Please Select The Size</option>
+	{% for row in athwear %}
+		<option value="{{ row[2] }}" SELECTED>{{ row[2] }}</option>
+	{% endfor %}
+	</select>	
 	 {% endif %}	 	
 	</td>
 	<td>
