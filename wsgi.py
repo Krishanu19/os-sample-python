@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+from flusk_wtf import FlaskForm
+from wtforms import SelectField
 import MySQLdb
 import json
+
 
 application = Flask(__name__, template_folder='templates')
 
@@ -72,7 +75,11 @@ def athwear():
               query = "SELECT distinct PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY  AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' AND PS.DESCRIPTION='Reflex Menâ€™s Track Jacket'and AND PST.BRAND='Reflex' and PP.IN_STOCK='Yes'" 
               cursor.execute(query)
               clrData = cursor.fetchall()              
-            return render_template('selection.html', athwear=desData)              
+            return render_template('selection.html', athwear=desData)   
+
+@application.route('/athwear/<brand>', methods=["GET", "POST"])  
+def brnd(description):
+        brands=  
 
 if __name__ == '__main__':
     application.run()
