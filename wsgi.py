@@ -1,9 +1,5 @@
-from flask import Flask, render_template, request, jsonify
-from flusk_wtf import FlaskForm
-from wtforms import SelectField
+from flask import Flask, render_template
 import MySQLdb
-import json
-
 
 application = Flask(__name__, template_folder='templates')
 
