@@ -9,17 +9,17 @@
 	<td>
 	{% if athwear %}	
 	<h2> Please Select The Item </h2>
-	<select id = "selectbox1" name="option" width="300px">
+	<select id = "selectbox1" name="item" width="300px">
 	<option>Please Select The Item</option>
 	{% for row in athwear %}
 		<option value="{{ row[0] }}" SELECTED>{{ row[0] }}</option>
 	{% endfor %}
 	</select>
 	<h2> Please Select The Brand </h2>
-	<select id = "selectbox2" name="option" width="300px">
+	<select id = "selectbox2" name="brand" width="300px">
 	<option>Please Select The Brand</option>
 	{% for row in athwear %}
-		{{row[1]}}
+		<option value="{{ row[1] }}" SELECTED>{{ row[1] }}</option>
 	{% endfor %}
 	</select>
 	 {% endif %}	 	
