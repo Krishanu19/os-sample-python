@@ -59,7 +59,7 @@ def athwear():
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
-              query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
+              query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1,PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
               cursor.execute(query)
               desData = cursor.fetchall()   
               print("Total number of rows: ", cursor.rowcount)
