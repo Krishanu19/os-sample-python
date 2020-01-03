@@ -57,7 +57,7 @@ def footwears():
 def athwear():
             conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
-            if request.method == "POST":
+            if request.method == "GET":
               details = request.form
               query = "SELECT distinct PS.DESCRIPTION FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
               cursor.execute(query)
