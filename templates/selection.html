@@ -12,7 +12,7 @@
 	<select id = "selectbox1" name="option" width="300px">
 	<option>Please Select The Item</option>
 	{% for row in athwear %}
-		<option value="{{ row }}" SELECTED>{{ row }}</option>
+		<option value="{{ row[0] }}" SELECTED>{{ row[0] }}</option>
 	{% endfor %}
 	</select>
 	 {% endif %}
