@@ -61,7 +61,11 @@ def athwear():
               details = request.form
               query = "SELECT distinct PS.DESCRIPTION FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
               cursor.execute(query)
-              desData = cursor.fetchall()             
+              desData = cursor.fetchall()   
+              print("Total number of rows: ", cursor.rowcount)
+              print("\nPrinting record")
+              for row in desData:
+                print("Available Class = ", row[0])              
             return render_template('selection.html', athwear=desData)   
 
 if __name__ == '__main__':
