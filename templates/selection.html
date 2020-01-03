@@ -8,21 +8,26 @@
 	<br>
 	<td>
 	{% if athwear %}	
-	<h2> Please Select The Item </h2>
-	<select id = "selectbox1" name="item" width="300px">
-	<option>Please Select The Item</option>
+	(% flag=1 %}
 	{% for row in athwear %}
-		<option value="{{ row[0] }}" SELECTED>{{ row[0] }}</option>
-	{% endfor %}
-	</select>
-	<h2> Please Select The Brand </h2>
-	<!--<select id = "selectbox2" name="brand" width="300px">
-	<option>Please Select The Brand</option> -->
-	{% for row in athwear %}
-		<!--<option value="{{ row[1] }}" SELECTED>{{ row[1] }}</option> -->
-		{{row[1]}}
-	{% endfor %}
-	<!--</select> -->
+		{% if flag == 1 %}
+			<h2> Please Select The Item </h2>
+		{% endif %}
+		{% item=row[0]%}
+		<select id = "selectbox1" name="item" width="300px">
+		<option>Please Select The Item</option>	
+		<option value="{{ item }}" SELECTED>{{ item }}</option>	
+		</select>
+		{% if flag == 1 %}
+			<h2> Please Select The Brand </h2>
+		{% endif %}
+		{% brand=row[1]%}	
+		<select id = "selectbox2" name="brand" width="300px">
+		<option>Please Select The Brand</option>	
+		<option value="{{ brand }}" SELECTED>{{ brand}}</option>
+		</select> 
+		{% flag=0 %}
+	{% endfor %}	
 	 {% endif %}	 	
 	</td>
 	<td>
