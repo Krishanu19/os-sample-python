@@ -16,12 +16,13 @@
 	{% endfor %}
 	</select>
 	<h2> Please Select The Brand </h2>
-	<select id = "selectbox2" name="brand" width="300px">
-	<option>Please Select The Brand</option>
+	<!--<select id = "selectbox2" name="brand" width="300px">
+	<option>Please Select The Brand</option> -->
 	{% for row in athwear %}
-		<option value="{{ row[1] }}" SELECTED>{{ row[1] }}</option>
+		<!--<option value="{{ row[1] }}" SELECTED>{{ row[1] }}</option> -->
+		{{row[1]}}
 	{% endfor %}
-	</select>
+	<!--</select> -->
 	 {% endif %}	 	
 	</td>
 	<td>
