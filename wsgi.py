@@ -40,7 +40,7 @@ def apparels():
 
 @application.route('/footwears', methods=["GET", "POST"])
 def footwears():
-            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
+            conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
@@ -55,7 +55,7 @@ def footwears():
               
 @application.route('/athwear', methods=["GET", "POST"])
 def athwear():
-            conn = MySQLdb.connect(host='mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
+            conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
