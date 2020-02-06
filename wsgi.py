@@ -93,7 +93,7 @@ def athwear():
 def submit():
             conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
-            selectbox1 = bt.request.POST.get('selectbox1', '')
+            selectbox1 = application.request.POST.get('selectbox1', '')
             return 'You have chosen ' + str(selectbox1)
 
 if __name__ == '__main__':
