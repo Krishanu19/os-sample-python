@@ -59,12 +59,8 @@ def athwear():
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
-              q1="select distinct ps.description from sampledb.XXIBM_PRODUCT_SKU ps, sampledb.XXIBM_PRODUCT_CATALOGUE pc where pc.Class_Name = 'Athletic wear' and ps.catalogue_category=pc.commodity"
-              cursor.execute(q1)
-              brand = cursor.fetchall()
-              q2="select brand from sampledb.XXIBM_PRODUCT_STYLE where description = " + str(brand)
-              # query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1,PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
-              # cursor.execute(query)
+              query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1,PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
+              cursor.execute(query)
               desData = cursor.fetchall()   
               print("Total number of rows: ", cursor.rowcount)
               print("\nPrinting record")
