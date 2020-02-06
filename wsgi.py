@@ -59,14 +59,22 @@ def athwear():
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
-              query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1,PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
-              cursor.execute(query)
+              q1 = "select distinct ps.description from sampledb.XXIBM_PRODUCT_SKU ps, sampledb.XXIBM_PRODUCT_CATALOGUE pc where pc.Class_Name = 'Athletic wear' and ps.catalogue_category=pc.commodity"
+              # query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1,PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
+              cursor.execute(q1)
               desData = cursor.fetchall()   
               print("Total number of rows: ", cursor.rowcount)
               print("\nPrinting record")
               for row in desData:
                 print("Available Class = ", row[0])              
-            return render_template('selection.html', athwear=desData)   
+              q2 = "select distinct SKUAtt_Value1 from sampledb.XXIBM_PRODUCT_SKU"
+              cursor.execute(q2)
+              sizeData = cursor.fetchall()   
+              print("Total number of rows in size: ", cursor.rowcount)
+              print("\nPrinting record")
+              for row in sizeData:
+                print("Available Class = ", row[0])              
+            return render_template('selection.html', athwear=desData, sathwear=sizeData)   
 
 if __name__ == '__main__':
     application.run()
