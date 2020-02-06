@@ -67,14 +67,28 @@ def athwear():
               print("\nPrinting record")
               for row in desData:
                 print("Available Class = ", row[0])              
-              q2 = "select distinct SKU_ATTRIBUTE_VALUE1 from sampledb.XXIBM_PRODUCT_SKU"
+              q2 = "select distinct BRAND from sampledb.CATALOGUE_CATEGORY"
               cursor.execute(q2)
+              brandData = cursor.fetchall()   
+              print("Total number of rows in brand: ", cursor.rowcount)
+              print("\nPrinting record")
+              for row in desData:
+                print("Available Class = ", row[0])              
+              q3 = "select distinct SKU_ATTRIBUTE_VALUE1 from sampledb.XXIBM_PRODUCT_SKU"
+              cursor.execute(q3)
               sizeData = cursor.fetchall()   
               print("Total number of rows in size: ", cursor.rowcount)
               print("\nPrinting record")
               for row in sizeData:
                 print("Available Class = ", row[0])              
-            return render_template('selection.html', athwear=desData, sathwear=sizeData)   
+              q4 = "select distinct SKU_ATTRIBUTE_VALUE2 from sampledb.XXIBM_PRODUCT_SKU"
+              cursor.execute(q4)
+              colorData = cursor.fetchall()   
+              print("Total number of rows in color: ", cursor.rowcount)
+              print("\nPrinting record")
+              for row in sizeData:
+                print("Available Class = ", row[0])              
+              return render_template('selection.html', athwear=desData, bathwear=brandData, sathwear=sizeData, cathwear=colorData)   
 
 if __name__ == '__main__':
     application.run()
