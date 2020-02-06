@@ -67,7 +67,7 @@ def athwear():
               print("\nPrinting record")
               for row in desData:
                 print("Available Class = ", row[0])              
-              q2 = "select distinct BRAND from sampledb.CATALOGUE_CATEGORY"
+              q2 = "select distinct BRAND from sampledb.XXIBM_PRODUCT_STYLE"
               cursor.execute(q2)
               brandData = cursor.fetchall()   
               print("Total number of rows in brand: ", cursor.rowcount)
