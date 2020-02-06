@@ -94,6 +94,7 @@ def submit():
             conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             text = request.form['selectbox1']
+            print("Selected values = ", text)
             return 'You have chosen ' + str(selectbox1)
 
 if __name__ == '__main__':
