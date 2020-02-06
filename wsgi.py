@@ -91,6 +91,7 @@ def athwear():
               
 @application.route('/athwear', methods=["POST"])
 def submit():
+            print("Selected values = ")
             conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             selectbox1 = request.form['selectbox1']
