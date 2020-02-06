@@ -89,7 +89,7 @@ def athwear():
                 print("Available Class = ", row[0])              
               return render_template('selection.html', athwear=desData, bathwear=brandData, sathwear=sizeData, cathwear=colorData)   
               
-@application.route('/athwear', methods=['GET', 'POST'])
+@application.route('/athwear', methods=["GET", "POST"])
 def submit():
             print("Selected values = ")
             conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
