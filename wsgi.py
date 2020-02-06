@@ -67,7 +67,7 @@ def athwear():
               print("\nPrinting record")
               for row in desData:
                 print("Available Class = ", row[0])              
-              q2 = "select distinct SKUAtt_Value1 from sampledb.XXIBM_PRODUCT_SKU"
+              q2 = "select distinct SKU_ATTRIBUTE_VALUE1 from sampledb.XXIBM_PRODUCT_SKU"
               cursor.execute(q2)
               sizeData = cursor.fetchall()   
               print("Total number of rows in size: ", cursor.rowcount)
