@@ -53,14 +53,13 @@ def footwears():
                 print("Available Class = ", row[0])
               return render_template('footwears.html', footwears=clsData)  
               
-@application.route('/athwear', methods=["GET", "POST"])
+@application.route('/athwear', methods=["GET"])
 def athwear():
             conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
             cursor = conn.cursor()
             if request.method == "GET":
               details = request.form
               q1 = "select distinct ps.description from sampledb.XXIBM_PRODUCT_SKU ps, sampledb.XXIBM_PRODUCT_CATALOGUE pc where pc.Class_Name = 'Athletic wear' and ps.catalogue_category=pc.commodity"
-              # query = "SELECT distinct PS.DESCRIPTION,PST.BRAND,PS.SKU_ATTRIBUTE_VALUE1,PS.SKU_ATTRIBUTE_VALUE2 FROM sampledb.XXIBM_PRODUCT_CATALOGUE PC , sampledb.XXIBM_PRODUCT_SKU PS , sampledb.XXIBM_PRODUCT_STYLE PST , sampledb.XXIBM_PRODUCT_PRICING PP WHERE PC.COMMODITY= PS.CATALOGUE_CATEGORY and PC.COMMODITY= PST.CATALOGUE_CATEGORY AND PS.ITEM_NUMBER=PP.ITEM_NUMBER AND PC.CLASS_NAME='Athletic wear' and PP.IN_STOCK='Yes'"
               cursor.execute(q1)
               desData = cursor.fetchall()   
               print("Total number of rows: ", cursor.rowcount)
@@ -89,6 +88,13 @@ def athwear():
               for row in sizeData:
                 print("Available Class = ", row[0])              
               return render_template('selection.html', athwear=desData, bathwear=brandData, sathwear=sizeData, cathwear=colorData)   
+              
+@application.route('/athwear', methods=["POST"])
+def submit():
+            conn = MySQLdb.connect(host='custom-mysql.gamification.svc.cluster.local',user='xxuser',passwd='welcome1',db='sampledb')
+            cursor = conn.cursor()
+            selectbox1 = bt.request.POST.get('selectbox1', '')
+            return 'You have chosen ' + str(selectbox1)
 
 if __name__ == '__main__':
     application.run()
